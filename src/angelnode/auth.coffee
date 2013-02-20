@@ -8,6 +8,7 @@
 request = require 'request'
 url = require 'url'
 qs = require 'querystring'
+config = require 'config'
 
 # Authentication module
 auth = module.exports =
@@ -19,7 +20,7 @@ auth = module.exports =
 
   # @params {scopes} Array of scope elements, optional
   getAuthUrl: (scopes) ->
-    uri = REQ_TOKEN_URL
+    uri = config["authCodeUrl"]
     uri+= '?client_id=' + @options.id
     if scopes?
       uri+= '&scope=' + scopes.join(',')
@@ -27,7 +28,7 @@ auth = module.exports =
 
   getAccessToken: (code, callback) ->
     request
-      url: ACCESS_TOKEN_URL,
+      url: config["accessTokenUrl"],
       method: 'POST'
       body: qs.stringify
         code: code
@@ -36,7 +37,6 @@ auth = module.exports =
         grant_type: 'authorization_code'
       headers:
         'Content-Type': 'application/x-www-form-urlencoded'
-        'User-Agent': 'angelnode/0.0.1 (https://github.com/jaipandya/angelnode) terminal/0.0'
     , (err, res, body) ->
       if res.statusCode is 404
         callback(new Error('Access token not found'))

@@ -1,0 +1,5 @@
+{
+  "apiBaseUrl": "https://api.angel.co/1"
+  "authCodeUrl": "https://angel.co/api/oauth/authorize"
+  "accessTokenUrl": "https://angel.co/api/oauth/token"
+}
