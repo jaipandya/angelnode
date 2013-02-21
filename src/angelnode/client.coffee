@@ -6,7 +6,7 @@
 
 # Requiring modules
 request = require 'request'
-config = require 'config'
+config = require './config'
 
 ActivityFeeds = require './activity_feeds'
 Follows = require './follows'
@@ -83,9 +83,11 @@ class Client
 
   query: (path = '/') ->
     path = '/' + path if path[0] isnt '/'
-    uri+= config.apiBaseUrl + path
-    uri+= "?access_token=#{@token}" if typeof @token == 'string'
-
+    uri = config.apiBaseUrl + path
+    if typeof @token == 'string'
+      uri+= "?access_token=#{@token}"
+    else
+      uri
   # Throw error if any, otherwise parse json and return callback
   responseHandler: (res, body, callback) ->
     return callback(new Error('Error ' + res.statusCode)) if Math.floor(res.statusCode/100) is 5

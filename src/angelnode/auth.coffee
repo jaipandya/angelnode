@@ -8,7 +8,7 @@
 request = require 'request'
 url = require 'url'
 qs = require 'querystring'
-config = require 'config'
+config = require './config'
 
 # Authentication module
 auth = module.exports =

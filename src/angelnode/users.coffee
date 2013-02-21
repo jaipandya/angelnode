@@ -31,6 +31,11 @@ class User
   search: (options, callback) ->
     callback(new Error('No search parameter specified')) unless (options?.slug? or options?.md5?)
     @client.get "/usrs/search", options, @responseHandler("User search get error")
+
+  me: (callback) ->
+    # Ensure presence of token, authentication required for this method
+    callback(new Error('No token provided, method requires authentication')) unless @client.token?
+    @client.get "/users/me", {}, @responseHandler("User info get error")
   
 
 # Export module
