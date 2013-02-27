@@ -14,9 +14,9 @@ It is a work in progress. Authentication and Users endpoints are completed as of
 1. ( )  Press
 1. ( )  Reviews
 1. ( )  Search
-1. ( )  StartupRoles
+1. (x)  StartupRoles
 1. ( )  Startups
-1. ( )  StatusUpdates
+1. (x)  StatusUpdates
 1. (x)  Tags
 1. (x)  [Users]
 1. (x)  [Auth]

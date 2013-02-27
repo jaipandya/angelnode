@@ -19,7 +19,8 @@ class User
 
   get: (options, callback) ->
     # id is required
-    return unless options?.id?
+    unless options?.id?
+      return callback(new Error('id parameter not present'))
     # Check type of id, if it is an Array then call /users/batch , otherwise /users/:id
     if typeof options.id is "Array"
       @client.get "/users/batch", {"ids": options.id.join(",")}, @responseHandler("User batch get error", callback)    
@@ -28,7 +29,8 @@ class User
 
   startups: (options, callback) ->
     # id is required
-    return unless options?.id?
+    unless options?.id?
+      return callback(new Error('id parameter not present'))
     @client.get "/users/#{options.id}/startups", {}, @responseHandler("User startups get error", callback)
 
   search: (options, callback) ->
