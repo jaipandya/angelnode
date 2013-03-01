@@ -31,7 +31,7 @@ class Client
   # Endpoints
   
   # Activity feed
-  activityFeeds: () ->
+  feed: () ->
     new ActivityFeeds @
 
   # Follows
