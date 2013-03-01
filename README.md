@@ -2,15 +2,15 @@
 
 ##Node API Wrapper for [AngelList]
 
-It is a work in progress.
+It is a work in progress. Till the time instructions on how to use this library are not present, source code is your friend.
 
 ###Completed API endpoints:
 
-1. ( )  ActivityFeeds
+1. (x)  [ActivityFeeds]
 1. ( )  Follows
 1. ( )  Jobs
 1. ( )  Messages
-1. ( )  Paths
+1. (x)  [Paths]
 1. ( )  Press
 1. ( )  Reviews
 1. ( )  Search
@@ -28,3 +28,5 @@ It is a work in progress.
 [StatusUpdates]: https://angel.co/api/spec/status_updates
 [Startups]: https://angel.co/api/spec/startups
 [StartupRoles]: https://angel.co/api/spec/startup_roles
+[ActivityFeeds]: https://angel.co/api/spec/activity_feeds
+[Paths]: https://angel.co/api/spec/paths
